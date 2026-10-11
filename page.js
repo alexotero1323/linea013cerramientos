@@ -241,7 +241,7 @@
   // Espera el primer pequeño vecindario (no las 121 imágenes) para que el
   // primer gesto tenga continuidad sin inflar la memoria durante la intro.
   var frames = !reduce && sequence ? sequence.diagnostics.ready : Promise.resolve();
-  if (sequence) MAX = 5000;
+  if (sequence) MAX = 2600; // en móvil no se espera a la animación completa: el título aparece antes
   Promise.all([ready, fonts, frames]).then(whenReady);
   setTimeout(function () { reveal(false); }, MAX);
 })();
